@@ -1,0 +1,94 @@
+/* .templates-container {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .buttons-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  .template-button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 300px;
+    text-align: center;
+    font-size: 16px;
+    transition: background 0.3s;
+  }
+  
+  .template-button:hover {
+    background-color: #0056b3;
+  }
+   */
+
+
+
+
+
+
+   
+
+
+   
+
+   .templates-container {
+    text-align: center;
+    padding: 20px;
+    background-color: #f8f9fa; /* Light gray background */
+    min-height: 100vh;
+  }
+  
+  .buttons-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px; /* Increased spacing for better UI */
+    margin-top: 20px;
+  }
+  
+  .template-button {
+    background-color: #0097b2; /* Teal color */
+    color: white;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 8px; /* Slightly rounded edges */
+    cursor: pointer;
+    width: 320px; /* Slightly wider */
+    text-align: center;
+    font-size: 17px;
+    font-weight: 500;
+    transition: background 0.3s, transform 0.2s;
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2); /* Soft shadow */
+  }
+  
+  .template-button:hover {
+    background-color: #006666; /* Darker teal on hover */
+    transform: translateY(-2px); /* Slight lift effect */
+  }
+  
+  .template-button:active {
+    transform: translateY(0); /* Button returns to normal when clicked */
+  }
+  
+  @media (max-width: 600px) {
+    .template-button {
+      width: 250px; /* Smaller width for mobile */
+      font-size: 15px;
+    }
+  }
+  
+
+
+
+
+
+
+  

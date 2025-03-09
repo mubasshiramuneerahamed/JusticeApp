@@ -78,3 +78,66 @@ app.use('/api/case-histories', caseHistoriesRoutes); // This should be correctly
 
 const PORT = 5000;
 app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
+
+
+
+
+
+
+// const express = require("express");
+// const mongoose = require("mongoose");
+// const multer = require("multer");
+// const { GridFsStorage } = require("multer-gridfs-storage");
+// const Grid = require("gridfs-stream");
+// const cors = require("cors");
+
+// const app = express();
+// app.use(cors());
+
+// // MongoDB connection
+// const mongoURI = "mongodb://localhost:27017/pdfDatabase";
+// const conn = mongoose.createConnection(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true });
+
+// let gfs;
+// conn.once("open", () => {
+//     gfs = Grid(conn.db, mongoose.mongo);
+//     gfs.collection("pdfs");
+// });
+
+// // Storage setup for GridFS
+// const storage = new GridFsStorage({
+//     url: mongoURI,
+//     file: (req, file) => {
+//         return {
+//             filename: file.originalname,
+//             bucketName: "pdfs",
+//         };
+//     },
+// });
+
+// const upload = multer({ storage });
+
+// // Upload PDF
+// app.post("/upload", upload.single("file"), (req, res) => {
+//     res.json({ file: req.file });
+// });
+
+// // Fetch all PDFs
+// app.get("/pdfs", async (req, res) => {
+//     const files = await gfs.files.find().toArray();
+//     res.json(files);
+// });
+
+// // Retrieve a PDF by filename
+// app.get("/pdf/:filename", (req, res) => {
+//     gfs.files.findOne({ filename: req.params.filename }, (err, file) => {
+//         if (!file || file.length === 0) {
+//             return res.status(404).json({ error: "No file found" });
+//         }
+//         const readstream = gfs.createReadStream(file.filename);
+//         readstream.pipe(res);
+//     });
+// });
+
+// app.listen(5000, () => console.log("Server running on port 5000"));
+
