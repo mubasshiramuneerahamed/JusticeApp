@@ -6,18 +6,39 @@ const LawNews = () => {
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  // useEffect(() => {
+  //   const fetchNews = async () => {
+  //     try {
+  //       const response = await axios.get('https://newsapi.org/v2/everything', {
+  //           params: {
+  //             q: '"Indian law" OR judiciary OR "Supreme Court" OR "High Court" OR "legal reform" OR "Indian Penal Code" OR "constitutional law" OR "legal judgment"',
+  //             language: 'en',
+  //             sortBy: 'relevancy', // better than publishedAt
+  //             pageSize: 20,
+  //             apiKey: 'baa4e60ac1654a2f8946ac67062007e4'
+  //           }
+  //         });          
+  //       setArticles(response.data.articles);
+  //       setLoading(false);
+  //     } catch (error) {
+  //       console.error('Error fetching news:', error);
+  //       setLoading(false);
+  //     }
+  //   };
+
   useEffect(() => {
     const fetchNews = async () => {
       try {
-        const response = await axios.get('https://newsapi.org/v2/everything', {
-            params: {
-              q: '"Indian law" OR judiciary OR "Supreme Court" OR "High Court" OR "legal reform" OR "Indian Penal Code" OR "constitutional law" OR "legal judgment"',
-              language: 'en',
-              sortBy: 'relevancy', // better than publishedAt
-              pageSize: 20,
-              apiKey: 'baa4e60ac1654a2f8946ac67062007e4'
-            }
-          });          
+       const response = await axios.get('https://newsapi.org/v2/everything', {
+  params: {
+    q: '"Indian law" OR judiciary OR "Supreme Court" OR "High Court" OR "legal reform" OR "Indian Penal Code" OR "constitutional law" OR "legal judgment"',
+    sortBy: 'relevancy',
+    pageSize: 20,
+    language: 'en',
+    sources: 'the-hindu,the-times-of-india,ndtv-news,bbc-news', // Add trusted Indian sources
+    apiKey: 'baa4e60ac1654a2f8946ac67062007e4'
+  }
+});   
         setArticles(response.data.articles);
         setLoading(false);
       } catch (error) {
@@ -29,6 +50,7 @@ const LawNews = () => {
     fetchNews();
   }, []);
 
+   
   if (loading) return <p>Loading news...</p>;
 
   return (
