@@ -91,4 +91,145 @@
 
 
 
+
+  .templates-container {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .buttons-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .agreement-row {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
+  }
+  
+  .template-button,
+  .download-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    min-width: 300px;
+  }
+  
+  .template-button {
+    background-color: #009bbf;
+    color: white;
+  }
+  
+  .download-button {
+    background-color: #28a745;
+    color: white;
+  }
+  
+
+
+  
+
+
+
+  /* .columns-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }
+  
+  .column {
+    flex: 1;
+    min-width: 300px;
+  }
+  
+  .agreement-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+  }
+  
+  .template-button,
+  .download-button {
+    padding: 8px 12px;
+    font-size: 14px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .template-button {
+    background-color: #00a5cf;
+    color: white;
+    margin-right: 10px;
+    flex: 1;
+  }
+  
+  .download-button {
+    background-color: #28a745;
+    color: white;
+    flex: 1;
+  }
+   */
+
+
+
+
+   .columns-container {
+    display: flex;
+    justify-content: center;
+    gap: 60px; /* increased gap between columns */
+    flex-wrap: wrap;
+    margin-top: 40px;
+  }
+  
+  .column {
+    flex: 1;
+    min-width: 350px; /* increased minimum width */
+  }
+  
+  .agreement-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px; /* increased spacing between rows */
+  }
+  
+  .template-button,
+  .download-button {
+    padding: 14px 20px;       /* bigger padding */
+    font-size: 16px;          /* larger text */
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+  
+  .template-button {
+    background-color: #00a5cf;
+    color: white;
+    margin-right: 12px;
+    flex: 1;
+  }
+  
+  .download-button {
+    background-color: #28a745;
+    color: white;
+    flex: 0.7;
+  }
+  
+  h2 {
+    text-align: center;
+    font-size: 28px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    color: #333;
+  }
   

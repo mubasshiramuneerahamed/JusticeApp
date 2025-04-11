@@ -195,7 +195,125 @@
 // 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import React from "react";
+// import LawNews from './LawNews';
+
+// import { Swiper, SwiperSlide } from "swiper/react";
+// import { Navigation, Pagination, Autoplay } from "swiper/modules";
+// import "swiper/css";
+// import "swiper/css/navigation";
+// import "swiper/css/pagination";
+
+// import "./RecentUpdates.css";
+
+// const RecentUpdates = () => {
+//   const newsData = [
+//     {
+//       imgSrc: "news1.jpg",
+//       altText: "News 1 Image",
+//       link: "news/news1.html",
+//       title:
+//         "Centre defends electoral bonds, says 'more contribution to the ruling party is norm'",
+//     },
+//     {
+//       imgSrc: "n3.jpg",
+//       altText: "News 2 Image",
+//       link: "news/news2.html",
+//       title:
+//         "'Why no health advisories to citizens?' Bombay High Court on dangerous AQI levels",
+//     },
+//     {
+//       imgSrc: "w3.jpg",
+//       altText: "News 3 Image",
+//       link: "news/news3.html",
+//       title:
+//         "Wife demanding to live separately from husband not always cruelty: Calcutta High Court",
+//     },
+//     {
+//       imgSrc: "n4.jpg",
+//       altText: "News 4 Image",
+//       link: "news/new4.html",
+//       title:
+//         "Firecracker restrictions: NGT calls for strict compliance; says celebrations can't be at the cost of health",
+//     },
+//     {
+//       imgSrc: "n5.jpg",
+//       altText: "News 5 Image",
+//       link: "news/news5.html",
+//       title:
+//         "'Why no health advisories to citizens?' Bombay High Court on dangerous AQI levels",
+//     },
+//     {
+//       imgSrc: "n6.jpg",
+//       altText: "News 6 Image",
+//       link: "news/news6.html",
+//       title:
+//         "Can transgender person who underwent surgery complain under Domestic Violence Act?",
+//     },
+//   ];
+
+//   return (
+//     <section className="recent-updates">
+//       <div className="container">
+//         <h2>Recent Updates</h2>
+//        <Swiper
+//   modules={[Navigation, Pagination, Autoplay]}
+//   spaceBetween={30}
+//   slidesPerView={1}
+//   navigation
+//   pagination={{ clickable: true }}
+//   autoplay={{ delay: 3000, disableOnInteraction: false }} // Auto-slide every 3 seconds
+// >
+
+//           {newsData.map((news, index) => (
+//             <SwiperSlide key={index}>
+//               <div className="news-image-container">
+//                 <img
+//                   className="news-image"
+//                   src={news.imgSrc}
+//                   alt={news.altText}
+//                 />
+//               </div>
+//               <div className="news-title">
+//                 <a href={news.link}>{news.title}</a>
+//               </div>
+//             </SwiperSlide>
+//           ))}
+//         </Swiper>
+//         <LawNews />
+//       </div>
+//     </section>
+//   );
+// };
+
+// export default RecentUpdates;
+
+
+
+
+
+
+
+
+
+
 import React from "react";
+import { useNavigate } from "react-router-dom";
+import LawNews from "./LawNews";
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
@@ -205,66 +323,77 @@ import "swiper/css/pagination";
 import "./RecentUpdates.css";
 
 const RecentUpdates = () => {
+  const navigate = useNavigate();
+
   const newsData = [
     {
+      id: 1,
       imgSrc: "news1.jpg",
       altText: "News 1 Image",
-      link: "news/news1.html",
       title:
         "Centre defends electoral bonds, says 'more contribution to the ruling party is norm'",
+      content: "Full article content for News 1 goes here..."
     },
     {
+      id: 2,
       imgSrc: "n3.jpg",
       altText: "News 2 Image",
-      link: "news/news2.html",
       title:
         "'Why no health advisories to citizens?' Bombay High Court on dangerous AQI levels",
+      content: "Full article content for News 2 goes here..."
     },
     {
+      id: 3,
       imgSrc: "w3.jpg",
       altText: "News 3 Image",
-      link: "news/news3.html",
       title:
         "Wife demanding to live separately from husband not always cruelty: Calcutta High Court",
+      content: "Full article content for News 3 goes here..."
     },
     {
+      id: 4,
       imgSrc: "n4.jpg",
       altText: "News 4 Image",
-      link: "news/new4.html",
       title:
         "Firecracker restrictions: NGT calls for strict compliance; says celebrations can't be at the cost of health",
+      content: "Full article content for News 4 goes here..."
     },
     {
+      id: 5,
       imgSrc: "n5.jpg",
       altText: "News 5 Image",
-      link: "news/news5.html",
       title:
         "'Why no health advisories to citizens?' Bombay High Court on dangerous AQI levels",
+      content: "Full article content for News 5 goes here..."
     },
     {
+      id: 6,
       imgSrc: "n6.jpg",
       altText: "News 6 Image",
-      link: "news/news6.html",
       title:
         "Can transgender person who underwent surgery complain under Domestic Violence Act?",
+      content: "Full article content for News 6 goes here..."
     },
   ];
+
+  const handleCardClick = (news) => {
+    navigate(`/recent-updates/${news.id}`, { state: news });
+  };
 
   return (
     <section className="recent-updates">
       <div className="container">
         <h2>Recent Updates</h2>
-       <Swiper
-  modules={[Navigation, Pagination, Autoplay]}
-  spaceBetween={30}
-  slidesPerView={1}
-  navigation
-  pagination={{ clickable: true }}
-  autoplay={{ delay: 3000, disableOnInteraction: false }} // Auto-slide every 3 seconds
->
-
-          {newsData.map((news, index) => (
-            <SwiperSlide key={index}>
+        <Swiper
+          modules={[Navigation, Pagination, Autoplay]}
+          spaceBetween={30}
+          slidesPerView={1}
+          navigation
+          pagination={{ clickable: true }}
+          autoplay={{ delay: 3000, disableOnInteraction: false }}
+        >
+          {newsData.map((news) => (
+            <SwiperSlide key={news.id} onClick={() => handleCardClick(news)}>
               <div className="news-image-container">
                 <img
                   className="news-image"
@@ -273,14 +402,120 @@ const RecentUpdates = () => {
                 />
               </div>
               <div className="news-title">
-                <a href={news.link}>{news.title}</a>
+                <h3>{news.title}</h3>
               </div>
             </SwiperSlide>
           ))}
         </Swiper>
+        <LawNews />
       </div>
     </section>
   );
 };
 
 export default RecentUpdates;
+
+
+
+
+
+
+// import React, { useState } from "react";
+// import { Swiper, SwiperSlide } from "swiper/react";
+// import { Navigation, Pagination, Autoplay } from "swiper/modules";
+// import "swiper/css";
+// import "swiper/css/navigation";
+// import "swiper/css/pagination";
+// import "./RecentUpdates.css";
+// import LawNews from "./LawNews"; // ✅ Import
+
+// const RecentUpdates = () => {
+//   const [showLawNews, setShowLawNews] = useState(false); // ✅ Toggle state
+
+//   const handleSwiperClick = () => {
+//     setShowLawNews(true); // ✅ Show LawNews on any click inside Swiper
+//   };
+
+//   const newsData = [
+//     {
+//       imgSrc: "news1.jpg",
+//       altText: "News 1 Image",
+//       link: "news/news1.html",
+//       title:
+//         "Centre defends electoral bonds, says 'more contribution to the ruling party is norm'",
+//     },
+//     {
+//       imgSrc: "n3.jpg",
+//       altText: "News 2 Image",
+//       link: "news/news2.html",
+//       title:
+//         "'Why no health advisories to citizens?' Bombay High Court on dangerous AQI levels",
+//     },
+//     {
+//       imgSrc: "w3.jpg",
+//       altText: "News 3 Image",
+//       link: "news/news3.html",
+//       title:
+//         "Wife demanding to live separately from husband not always cruelty: Calcutta High Court",
+//     },
+//     {
+//       imgSrc: "n4.jpg",
+//       altText: "News 4 Image",
+//       link: "news/new4.html",
+//       title:
+//         "Firecracker restrictions: NGT calls for strict compliance; says celebrations can't be at the cost of health",
+//     },
+//     {
+//       imgSrc: "n5.jpg",
+//       altText: "News 5 Image",
+//       link: "news/news5.html",
+//       title:
+//         "'Why no health advisories to citizens?' Bombay High Court on dangerous AQI levels",
+//     },
+//     {
+//       imgSrc: "n6.jpg",
+//       altText: "News 6 Image",
+//       link: "news/news6.html",
+//       title:
+//         "Can transgender person who underwent surgery complain under Domestic Violence Act?",
+//     },
+//   ];
+
+//   return (
+//     <section className="recent-updates">
+//       <div className="container">
+//         <h2>Recent Updates</h2>
+//         <div onClick={handleSwiperClick}> {/* ✅ Wrap Swiper in click handler */}
+//           <Swiper
+//             modules={[Navigation, Pagination, Autoplay]}
+//             spaceBetween={30}
+//             slidesPerView={1}
+//             navigation
+//             pagination={{ clickable: true }}
+//             autoplay={{ delay: 3000, disableOnInteraction: false }}
+//           >
+//             {newsData.map((news, index) => (
+//               <SwiperSlide key={index}>
+//                 <div className="news-image-container">
+//                   <img
+//                     className="news-image"
+//                     src={news.imgSrc}
+//                     alt={news.altText}
+//                   />
+//                 </div>
+//                 <div className="news-title">
+//                   <a href={news.link}>{news.title}</a>
+//                 </div>
+//               </SwiperSlide>
+//             ))}
+//           </Swiper>
+//         </div>
+
+//         {/* ✅ Conditionally render LawNews */}
+//         {showLawNews && <LawNews />}
+//       </div>
+//     </section>
+//   );
+// };
+
+// export default RecentUpdates;

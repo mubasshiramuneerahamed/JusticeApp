@@ -122,8 +122,12 @@ import Ticker from './components/Ticker';
 import AboutSection from './components/AboutSection';
 import Modules from './components/Modules';
 import RecentUpdates from './components/RecentUpdates';
+
+import RecentUpdatesDetails from "./components/RecentUpdatesDetails";
 import Footer from './components/Footer';
 import Signup from './components/Signup';
+import Login from './components/Login';
+import LawNews from './components/LawNews';
 import CaseHistories from './components/CaseHistories';
 import KnowYourRightsPage from './components/KnowYourRightsPage';
 import StateDetailsPage from './components/StateDetailsPage';
@@ -148,9 +152,14 @@ function App() {
           } 
         />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/law-news" element={<LawNews />} />
         <Route path="/case-histories" element={<CaseHistories />} />
         <Route path="/know-your-rights" element={<KnowYourRightsPage />} />
         <Route path="/state/:id" element={<StateDetailsPage />} />
+        {/* <Route path="/" element={<Home />} /> */}
+    <Route path="/recent-updates" element={<RecentUpdates />} />
+    <Route path="/recent-updates/:id" element={<RecentUpdatesDetails />} />
 
         {/* ✅ Route for Templates Page */}
         <Route path="/templates" element={<Temp />} />
@@ -162,3 +171,26 @@ function App() {
 }
 
 export default App;
+
+// import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+// import Signup from './components/Signup';
+// import Login from './components/Login';
+// import LawNews from './components/LawNews';
+// // import other components...
+
+// function App() {
+//   return (
+//     <Router>
+//       <Routes>
+//         <Route path="/signup" element={<Signup />} />
+//         <Route path="/login" element={<Login />} />
+//         <Route path="/law-news" element={<LawNews />} />
+//         {/* other routes */}
+//       </Routes>
+//     </Router>
+//   );
+// }
+
+
+
+// export default App;

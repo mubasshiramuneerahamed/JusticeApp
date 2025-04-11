@@ -76,8 +76,8 @@ const AboutSection = () => {
             <p>Our goal is to make legal services accessible, convenient, and understandable for everyone.</p>
             <p>Join us on this journey towards legal empowerment, where knowledge meets opportunity.</p>
             
-            {/* Update the button to navigate to the Signup page */}
-            {/* <Link to="/signup" className="explore-services-btn">Signup</Link> */}
+            {/*Update the button to navigate to the Signup page*/}
+            {<Link to="/signup" className="explore-services-btn">Signup</Link>} 
           </div>
           <div className="about-image">
             <img src="info.jpg" alt="Legal Hub Info" />

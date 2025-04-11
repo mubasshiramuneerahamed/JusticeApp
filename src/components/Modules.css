@@ -50,7 +50,7 @@
   .digital-assistance {
      /* New Blue Gradient */
     color: white;
-    transform: scale(1.05);
+    transform: scale(1.00);
     border: 2px solid #ffffff;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   }
@@ -62,12 +62,12 @@
   .digital-assistance h2 {
     font-size: 1.8rem;
     font-weight: bold;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
   }
   
   .digital-assistance p {
     font-size: 1.1rem;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
   }
   
   /* 🌟 New Hover Effect */

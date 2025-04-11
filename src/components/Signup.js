@@ -339,62 +339,157 @@
 // export default Signup;
 
 
-import React, { useState } from "react";
-import axios from "axios";
-import "./Signup.css"; 
+
+
+
+
+
+
+// import React, { useState } from "react";
+// import axios from "axios";
+// import "./Signup.css"; 
+
+// const Signup = () => {
+//   const [formData, setFormData] = useState({
+//     name: "",
+//     email: "",
+//     password: "",
+//     confirmPassword: "",
+//   });
+
+//   const handleChange = (e) => {
+//     setFormData({ ...formData, [e.target.name]: e.target.value });
+//   };
+
+//   const handleSubmit = async (e) => {
+//     e.preventDefault();
+//     if (formData.password !== formData.confirmPassword) {
+//       alert("Passwords do not match!");
+//       return;
+//     }
+//     try {
+//       const res = await axios.post("http://localhost:5000/api/auth/signup", formData);
+//       alert("Signup Successful");
+//       console.log(res.data);
+//     } catch (err) {
+//       alert(err.response?.data?.message || "Error signing up");
+//     }
+//   };
+
+//   return (
+//     <div className="signup-container">
+//       <h2>Create an Account</h2>
+//       <form onSubmit={handleSubmit}>
+//         <div className="input-group">
+//           <label>Full Name</label>
+//           <input type="text" name="name" placeholder="Enter your full name" onChange={handleChange} required />
+//         </div>
+
+//         <div className="input-group">
+//           <label>Email</label>
+//           <input type="email" name="email" placeholder="Enter your email" onChange={handleChange} required />
+//         </div>
+
+//         <div className="input-group">
+//           <label>Password</label>
+//           <input type="password" name="password" placeholder="Enter password" onChange={handleChange} required />
+//         </div>
+
+//         <div className="input-group">
+//           <label>Confirm Password</label>
+//           <input type="password" name="confirmPassword" placeholder="Confirm your password" onChange={handleChange} required />
+//         </div>
+
+//         <button type="submit" className="signup-button">Sign Up</button>
+//       </form>
+//     </div>
+//   );
+// };
+
+// export default Signup;
+
+
+
+
+
+
+
+// import React, { useState } from 'react';
+// import axios from 'axios';
+// import { useNavigate } from 'react-router-dom';
+// import './AuthForm.css'; // We'll create this file
+
+// const Signup = () => {
+//   const [form, setForm] = useState({ name: '', email: '', password: '' });
+//   const navigate = useNavigate();
+
+//   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
+
+//   const handleSubmit = async (e) => {
+//     e.preventDefault();
+//     try {
+//       await axios.post('http://localhost:5000/api/auth/signup', form);
+//       alert('Signup successful! Please log in.');
+//       navigate('/login');
+//     } catch (err) {
+//       alert(err.response?.data?.message || 'Signup failed');
+//     }
+//   };
+
+//   return (
+//     <div className="auth-container">
+//       <form className="auth-form" onSubmit={handleSubmit}>
+//         <h2>Create Account</h2>
+//         <input name="name" placeholder="Full Name" onChange={handleChange} required />
+//         <input name="email" type="email" placeholder="Email Address" onChange={handleChange} required />
+//         <input name="password" type="password" placeholder="Password" onChange={handleChange} required />
+//         <button type="submit">Sign Up</button>
+//         <p onClick={() => navigate('/login')} className="form-link">Already have an account? Login</p>
+//       </form>
+//     </div>
+//   );
+// };
+
+// export default Signup;
+
+
+
+
+
+
+import React, { useState } from 'react';
+import axios from 'axios';
+import { useNavigate, Link } from 'react-router-dom';
+import './AuthForm.css';
 
 const Signup = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
-  });
+  const [form, setForm] = useState({ name: '', email: '', password: '' });
+  const navigate = useNavigate();
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+  const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (formData.password !== formData.confirmPassword) {
-      alert("Passwords do not match!");
-      return;
-    }
     try {
-      const res = await axios.post("http://localhost:5000/api/auth/signup", formData);
-      alert("Signup Successful");
-      console.log(res.data);
+      await axios.post('http://localhost:5000/api/auth/signup', form);
+      alert('Signup successful! Please log in.');
+      navigate('/login');
     } catch (err) {
-      alert(err.response?.data?.message || "Error signing up");
+      alert(err.response?.data?.message || 'Signup failed');
     }
   };
 
   return (
-    <div className="signup-container">
-      <h2>Create an Account</h2>
-      <form onSubmit={handleSubmit}>
-        <div className="input-group">
-          <label>Full Name</label>
-          <input type="text" name="name" placeholder="Enter your full name" onChange={handleChange} required />
-        </div>
+    <div className="auth-container">
+      <form className="auth-form" onSubmit={handleSubmit}>
+        <h2>Create Account</h2>
+        <input name="name" placeholder="Full Name" onChange={handleChange} required />
+        <input name="email" type="email" placeholder="Email Address" onChange={handleChange} required />
+        <input name="password" type="password" placeholder="Password" onChange={handleChange} required />
+        <button type="submit">Sign Up</button>
 
-        <div className="input-group">
-          <label>Email</label>
-          <input type="email" name="email" placeholder="Enter your email" onChange={handleChange} required />
-        </div>
-
-        <div className="input-group">
-          <label>Password</label>
-          <input type="password" name="password" placeholder="Enter password" onChange={handleChange} required />
-        </div>
-
-        <div className="input-group">
-          <label>Confirm Password</label>
-          <input type="password" name="confirmPassword" placeholder="Confirm your password" onChange={handleChange} required />
-        </div>
-
-        <button type="submit" className="signup-button">Sign Up</button>
+        <p className="form-link" onClick={() => navigate('/login')}>Already have an account? Login</p>
+        <p className="form-link"><Link to="/">← Back to Home</Link></p>
       </form>
     </div>
   );

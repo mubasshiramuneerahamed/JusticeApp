@@ -1,9 +1,10 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import "./StateDetailsPage.css";
 
 const StateDetailsPage = () => {
   const { id } = useParams(); // Get the state ID from the URL
+  const navigate = useNavigate();
   
   // Data for Indian states with their rights
   const statesData = [
@@ -1551,14 +1552,28 @@ const StateDetailsPage = () => {
   if (!state) {
     return <h2>State not found</h2>;
   }
-
   return (
     <div className="state-details">
+      {/* Back Button */}
+      <button onClick={() => navigate(-1)} className="back-button">
+        Back
+      </button>
+      
       <h1>{state.name} - Know Your Rights</h1>
-      <p>{state.rights}</p>
-      {/* You can add more detailed info here */}
+      <div>{state.rights}</div>
     </div>
   );
+
+  // return (
+  //   <div className="state-details">
+  //     <h1>{state.name} - Know Your Rights</h1>
+  //     <p>{state.rights}</p>
+  //     <div className="back-button-container">
+  //       <button onClick={() => navigate(-1)} className="back-button">← Back</button>
+  //     </div>
+  //     {/* You can add more detailed info here */}
+  //   </div>
+  // );
 };
 
 export default StateDetailsPage;

@@ -57,28 +57,60 @@
 
 
 
+// const express = require('express');
+// const cors = require('cors');
+// const connectDB = require('./config/db');
+// const authRoutes = require('./routes/authRoutes');
+// const caseHistoriesRoutes = require("./routes/caseHistoriesRoutes"); // Import new route
+
+// const app = express();
+
+// // Connect to MongoDB
+// connectDB();
+
+// // Middleware
+// app.use(cors());
+// app.use(express.json());
+
+// // Routes
+// app.use('/api/auth', authRoutes); // Fix the endpoint structure
+// app.use('/api/case-histories', caseHistoriesRoutes); // This should be correctly placed
+
+// const PORT = 5000;
+// app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
+
+
+
+
+
+
+
+
 const express = require('express');
+const mongoose = require('mongoose');
 const cors = require('cors');
-const connectDB = require('./config/db');
-const authRoutes = require('./routes/authRoutes');
-const caseHistoriesRoutes = require("./routes/caseHistoriesRoutes"); // Import new route
+const dotenv = require('dotenv'); // Import dotenv
+const authRoutes = require('./routes/auth');
+
+dotenv.config(); // Load environment variables from .env
 
 const app = express();
-
-// Connect to MongoDB
-connectDB();
-
-// Middleware
 app.use(cors());
 app.use(express.json());
+app.use('/api/auth', authRoutes);
 
-// Routes
-app.use('/api/auth', authRoutes); // Fix the endpoint structure
-app.use('/api/case-histories', caseHistoriesRoutes); // This should be correctly placed
+// Use the MongoDB URI from .env
+mongoose.connect(process.env.MONGODB_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+})
+.then(() => console.log('MongoDB connected'))
+.catch(err => console.log(err));
 
 const PORT = 5000;
-app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
-
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
 
 
 
